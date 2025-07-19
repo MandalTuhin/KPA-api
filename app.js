@@ -2,7 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import testRoutes from './routes/test.js';
-
+import wheelSpecRoute from './routes/wheelSpecifications.js';
 
 dotenv.config();
 
@@ -21,6 +21,9 @@ app.get("/", (req, res) =>{
 
 // Test route
 app.use('/test', testRoutes);
+// Wheel Specifications route
+app.use('/api/forms/wheel-specifications', wheelSpecRoute);
+
 
 // Starting the server
 
