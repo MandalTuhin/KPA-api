@@ -1,5 +1,11 @@
 import pool from '../db/index.js';
 
+/**
+ * Creates a new wheel specification record.
+ * @param {import('express').Request} req - The Express request object.
+ * @param {import('express').Response} res - The Express response object.
+ * @param {import('express').NextFunction} next - The Express next middleware function.
+ */
 export const createWheelSpecification = async (req, res, next) => {
   const { formNumber, submittedBy, submittedDate, fields } = req.validatedData;
 
@@ -38,6 +44,12 @@ export const createWheelSpecification = async (req, res, next) => {
   });
 }; 
 
+/**
+ * Retrieves and filters wheel specification records.
+ * @param {import('express').Request} req - The Express request object.
+ * @param {import('express').Response} res - The Express response object.
+ * @param {import('express').NextFunction} next - The Express next middleware function.
+ */
 export const getFilteredWheelSpecifications = async (req, res, next) => {
   const { formNumber, submittedBy, submittedDate } = req.validatedData;
   // Build dynamic WHERE clause based on available filters
