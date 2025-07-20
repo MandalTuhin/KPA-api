@@ -42,3 +42,8 @@ export const wheelSpecificationSchema = z.object({
   }, { required_error: "fields object is required." }).passthrough()
 });
 
+export const wheelSpecificationFilterSchema = z.object({
+  formNumber: z.string().optional(),
+  submittedBy: z.string().optional(),
+  submittedDate: z.string().date("submittedDate must be a valid date in YYYY-MM-DD format.").optional(),
+});
