@@ -30,6 +30,15 @@ app.use('/api/forms/wheel-specifications', wheelSpecificationsRoutes);
 // --- Centralized Error Handler ---
 // This middleware catches any errors passed by next() or thrown in async routes.
 app.use((err, req, res, next) => {
+  // Handle PostgreSQL unique constraint violation (e.g., duplicate formNumber)
+  if (err.code === '23505') {
+    return res.status(409).json({ // 409 Conflict
+      success: false,
+      message: 'A record with this formNumber already exists.',
+      // You can optionally include which field caused the error
+      // detail: err.detail 
+    });
+  }
   console.error("An unexpected error occurred:", err);
   res.status(500).json({
     success: false,
