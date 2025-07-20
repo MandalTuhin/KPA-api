@@ -14,8 +14,11 @@ app.use(cors());
 app.use(express.json());
 
 
-app.get("/", (req, res) =>{
-    res.send("API is working");
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    message: 'KPA Forms API is running.',
+  });
 });
 
 // --- API Routes ---
