@@ -153,7 +153,7 @@ You can import this collection into Postman to test all the implemented endpoint
 To start the development server with hot-reloading (thanks to `nodemon`), run:
 
 ```bash
-pnpm start
+pnpm start:dev
 ```
 
 The API will be available at `http://localhost:4000`.
