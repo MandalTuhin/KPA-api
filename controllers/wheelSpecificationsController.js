@@ -22,6 +22,15 @@ export const createWheelSpecification = async (req, res) => {
 
     const newRecord = result.rows[0];
 
+    if (!newRecord) {
+      // This case is unlikely with RETURNING but is good practice for robustness.
+      // It prevents a TypeError if the database insert somehow fails to return a record.
+      return res.status(500).json({
+        success: false,
+        message: "Failed to create record, please try again."
+      });
+    }
+
     return res.status(201).json({
       success: true,
       message: "Wheel specification submitted successfully.",
