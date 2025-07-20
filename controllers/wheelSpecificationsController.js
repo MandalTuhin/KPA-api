@@ -20,11 +20,15 @@ export const createWheelSpecification = async (req, res) => {
 
     const result = await pool.query(query, values);
 
+    const newRecord = result.rows[0];
+
     return res.status(201).json({
       success: true,
       message: "Wheel specification submitted successfully.",
       data: {
-        ...result.rows[0],
+        formNumber: newRecord.formNumber,
+        submittedBy: newRecord.submittedBy,
+        submittedDate: newRecord.submittedDate,
         status: "Saved"
       }
     });
