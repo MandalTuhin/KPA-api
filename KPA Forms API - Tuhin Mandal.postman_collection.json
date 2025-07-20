@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "8d95101a-8b2e-4df6-854e-b0d8b434082e",
+		"name": "KPA Forms API - Tuhin Mandal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46216601",
+		"_collection_link": "https://tuhinmandal-2958043.postman.co/workspace/Tuhin-Mandal's-Workspace~31969480-ef1f-4e09-8c6b-83b62f7e9cb3/collection/46216601-8d95101a-8b2e-4df6-854e-b0d8b434082e?action=share&source=collection_link&creator=46216601"
+	},
+	"item": [
+		{
+			"name": "Create Wheel Specification",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"formNumber\": \"WHEEL-2024-101\",\n  \"submittedBy\": \"tuhin_m\",\n  \"submittedDate\": \"2024-07-20\",\n  \"fields\": {\n    \"treadDiameterNew\": \"915 (900-1000)\",\n    \"lastShopIssueSize\": \"837 (800-900)\",\n    \"condemningDia\": \"825 (800-900)\",\n    \"wheelGauge\": \"1600 (+2,-1)\",\n    \"variationSameAxle\": \"0.5\",\n    \"variationSameBogie\": \"5\",\n    \"variationSameCoach\": \"13\",\n    \"wheelProfile\": \"29.4 Flange Thickness\",\n    \"intermediateWWP\": \"20 TO 28\",\n    \"bearingSeatDiameter\": \"130.043 TO 130.068\",\n    \"rollerBearingOuterDia\": \"280 (+0.0/-0.035)\",\n    \"rollerBearingBoreDia\": \"130 (+0.0/-0.025)\",\n    \"rollerBearingWidth\": \"93 (+0/-0.250)\",\n    \"axleBoxHousingBoreDia\": \"280 (+0.030/+0.052)\",\n    \"wheelDiscWidth\": \"127 (+4/-0)\"\n  }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/forms/wheel-specifications",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"forms",
+						"wheel-specifications"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "201 Created",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"formNumber\": \"WHEEL-2024-101\",\n  \"submittedBy\": \"tuhin_m\",\n  \"submittedDate\": \"2024-07-20\",\n  \"fields\": {\n    \"treadDiameterNew\": \"915 (900-1000)\",\n    \"lastShopIssueSize\": \"837 (800-900)\",\n    \"condemningDia\": \"825 (800-900)\",\n    \"wheelGauge\": \"1600 (+2,-1)\",\n    \"variationSameAxle\": \"0.5\",\n    \"variationSameBogie\": \"5\",\n    \"variationSameCoach\": \"13\",\n    \"wheelProfile\": \"29.4 Flange Thickness\",\n    \"intermediateWWP\": \"20 TO 28\",\n    \"bearingSeatDiameter\": \"130.043 TO 130.068\",\n    \"rollerBearingOuterDia\": \"280 (+0.0/-0.035)\",\n    \"rollerBearingBoreDia\": \"130 (+0.0/-0.025)\",\n    \"rollerBearingWidth\": \"93 (+0/-0.250)\",\n    \"axleBoxHousingBoreDia\": \"280 (+0.030/+0.052)\",\n    \"wheelDiscWidth\": \"127 (+4/-0)\"\n  }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/forms/wheel-specifications",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"forms",
+								"wheel-specifications"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "181"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b5-4wn5An9hbOoC+YTDfXP6Sh5+vxM\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Jul 2025 09:30:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Wheel specification submitted successfully.\",\n    \"data\": {\n        \"formNumber\": \"WHEEL-2024-101\",\n        \"submittedBy\": \"tuhin_m\",\n        \"submittedDate\": \"2024-07-20\",\n        \"status\": \"Saved\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Wheel Specifications (with filter)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/forms/wheel-specifications?formNumber=WHEEL-2024-101&submittedBy=tuhin_m&submittedDate=2024-07-20",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"forms",
+						"wheel-specifications"
+					],
+					"query": [
+						{
+							"key": "formNumber",
+							"value": "WHEEL-2024-101"
+						},
+						{
+							"key": "submittedBy",
+							"value": "tuhin_m"
+						},
+						{
+							"key": "submittedDate",
+							"value": "2024-07-20"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK - Filtered Results",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/forms/wheel-specifications?formNumber=WHEEL-2024-101&submittedBy=tuhin_m&submittedDate=2024-07-20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"forms",
+								"wheel-specifications"
+							],
+							"query": [
+								{
+									"key": "formNumber",
+									"value": "WHEEL-2024-101"
+								},
+								{
+									"key": "submittedBy",
+									"value": "tuhin_m"
+								},
+								{
+									"key": "submittedDate",
+									"value": "2024-07-20"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "712"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2c8-dOUWghrEyLlDKt0W05Xf5Vt4p9M\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Jul 2025 09:40:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Filtered wheel specification forms fetched successfully.\",\n    \"data\": [\n        {\n            \"formNumber\": \"WHEEL-2024-101\",\n            \"submittedBy\": \"tuhin_m\",\n            \"submittedDate\": \"2024-07-20\",\n            \"fields\": {\n                \"wheelGauge\": \"1600 (+2,-1)\",\n                \"wheelProfile\": \"29.4 Flange Thickness\",\n                \"condemningDia\": \"825 (800-900)\",\n                \"wheelDiscWidth\": \"127 (+4/-0)\",\n                \"intermediateWWP\": \"20 TO 28\",\n                \"treadDiameterNew\": \"915 (900-1000)\",\n                \"lastShopIssueSize\": \"837 (800-900)\",\n                \"variationSameAxle\": \"0.5\",\n                \"rollerBearingWidth\": \"93 (+0/-0.250)\",\n                \"variationSameBogie\": \"5\",\n                \"variationSameCoach\": \"13\",\n                \"bearingSeatDiameter\": \"130.043 TO 130.068\",\n                \"rollerBearingBoreDia\": \"130 (+0.0/-0.025)\",\n                \"axleBoxHousingBoreDia\": \"280 (+0.030/+0.052)\",\n                \"rollerBearingOuterDia\": \"280 (+0.0/-0.035)\"\n            }\n        }\n    ]\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:4000",
+			"type": "default"
+		}
+	]
+}

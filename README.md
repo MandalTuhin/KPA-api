@@ -123,6 +123,14 @@ CREATE TABLE wheel_specifications (
 
 ---
 
+## Testing with Postman
+
+A complete Postman collection is included in the root of this repository: `KPA-API-Tuhin-Mandal.postman_collection.json`.
+
+You can import this collection into Postman to test all the implemented endpoints. It includes example requests and saved responses for both success and error cases. The collection is configured to use a `{{baseURL}}` variable, which is preset to `http://localhost:4000`.
+
+---
+
 ## Running the Application
 
 To start the development server with hot-reloading (thanks to `nodemon`), run:
