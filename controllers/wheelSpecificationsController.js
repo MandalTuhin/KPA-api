@@ -8,9 +8,12 @@ export const createWheelSpecification = async (req, res) => {
     // Insert data into the database
 
     const query = `
-      INSERT INTO wheel_specifications (form_number, submitted_by, submitted_date, fields)
-      VALUES ($1, $2, $3, $4)
-      RETURNING form_number, submitted_by, submitted_date;
+      INSERT INTO wheel_specifications (form_number, submitted_by, submitted_date, fields) 
+      VALUES ($1, $2, $3, $4) 
+      RETURNING 
+        form_number AS "formNumber", 
+        submitted_by AS "submittedBy", 
+        TO_CHAR(submitted_date, 'YYYY-MM-DD') AS "submittedDate";
     `;
 
     const values = [formNumber, submittedBy, submittedDate, fields];
@@ -60,7 +63,15 @@ export const getFilteredWheelSpecifications = async (req, res) => {
 
     const whereClause = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : '';
 
-    const query = `SELECT * FROM wheel_specifications ${whereClause}`;
+    const query = `
+      SELECT 
+        id, 
+        form_number AS "formNumber", 
+        submitted_by AS "submittedBy", 
+        TO_CHAR(submitted_date, 'YYYY-MM-DD') AS "submittedDate", 
+        fields, 
+        created_at AS "createdAt" 
+      FROM wheel_specifications ${whereClause}`;
     const result = await pool.query(query, values);
 
     return res.status(200).json({
