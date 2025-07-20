@@ -19,9 +19,12 @@ app.get("/", (req, res) =>{
     res.send("API is working");
 });
 
-// Test route
+// --- API Routes ---
+
+// Development test route
 app.use('/test', testRoutes);
-// Wheel Specifications route
+
+// Form submission routes
 app.use('/api/forms/wheel-specifications', wheelSpecificationsRoutes);
 
 
