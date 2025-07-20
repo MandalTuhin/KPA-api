@@ -1,7 +1,7 @@
 const validate = (schema, property = 'body') => (req, res, next) => {
   const result = schema.safeParse(req[property]);
   if (result.success) {
-    req[property] = result.data; // Overwrite property with validated and sanitized data
+    req.validatedData = result.data; // Attach validated data to a new property
     return next();
   }
   res.status(400).json({

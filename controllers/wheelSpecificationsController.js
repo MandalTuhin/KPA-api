@@ -4,8 +4,7 @@ export const createWheelSpecification = async (req, res) => {
   try {
     // The request body is already validated by the `validate` middleware.
     // `req.body` now contains the sanitized and validated data.
-    const { formNumber, submittedBy, submittedDate, fields } = req.body;
-
+    const { formNumber, submittedBy, submittedDate, fields } = req.validatedData;
     // Insert data into the database
 
     const query = `
@@ -39,8 +38,7 @@ export const createWheelSpecification = async (req, res) => {
 
 export const getFilteredWheelSpecifications = async (req, res) => {
   try {
-    const { formNumber, submittedBy, submittedDate } = req.query;
-
+    const { formNumber, submittedBy, submittedDate } = req.validatedData;
     // Build dynamic WHERE clause based on available filters
     let conditions = [];
     let values = [];
