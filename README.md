@@ -113,7 +113,7 @@ Connect to your PostgreSQL instance and run the following SQL command to create 
 ```sql
 CREATE TABLE wheel_specifications (
     id SERIAL PRIMARY KEY,
-    form_number VARCHAR(255) NOT NULL,
+    form_number VARCHAR(255) NOT NULL UNIQUE,
     submitted_by VARCHAR(255) NOT NULL,
     submitted_date DATE NOT NULL,
     fields JSONB,
