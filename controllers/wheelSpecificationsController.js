@@ -40,3 +40,45 @@ export const createWheelSpecification = async (req, res) => {
 };
 
 
+export const getFilteredWheelSpecifications = async (req, res) => {
+  try {
+    const { formNumber, submittedBy, submittedDate } = req.query;
+
+    // Build dynamic WHERE clause based on available filters
+    let conditions = [];
+    let values = [];
+
+    if (formNumber) {
+      values.push(formNumber);
+      conditions.push(`form_number = $${values.length}`);
+    }
+
+    if (submittedBy) {
+      values.push(submittedBy);
+      conditions.push(`submitted_by = $${values.length}`);
+    }
+
+    if (submittedDate) {
+      values.push(submittedDate);
+      conditions.push(`submitted_date = $${values.length}`);
+    }
+
+    const whereClause = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : '';
+
+    const query = `SELECT * FROM wheel_specifications ${whereClause}`;
+    const result = await pool.query(query, values);
+
+    return res.status(200).json({
+      success: true,
+      message: "Filtered wheel specification forms fetched successfully.",
+      data: result.rows
+    });
+
+  } catch (error) {
+    console.error("Error in getFilteredWheelSpecifications:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Server error"
+    });
+  }
+};
