@@ -65,12 +65,10 @@ export const getFilteredWheelSpecifications = async (req, res) => {
 
     const query = `
       SELECT 
-        id, 
         form_number AS "formNumber", 
         submitted_by AS "submittedBy", 
         TO_CHAR(submitted_date, 'YYYY-MM-DD') AS "submittedDate", 
-        fields, 
-        created_at AS "createdAt" 
+        fields
       FROM wheel_specifications ${whereClause}`;
     const result = await pool.query(query, values);
 
