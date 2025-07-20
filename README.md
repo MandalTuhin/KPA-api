@@ -69,6 +69,23 @@ This project goes beyond the basic requirements to include several features that
 
 ---
 
+## Folder Structure
+
+The project follows a clean, modular structure to separate concerns and improve maintainability:
+
+```
+KPA-api/
+├── controllers/    # Business logic for each endpoint
+├── db/             # Database connection pool
+├── middleware/     # Reusable middleware functions (e.g., validation)
+├── routes/         # API route definitions
+├── schemas/        # Zod validation schemas
+├── .env.example    # Template for environment variables
+└── app.js          # Entry point of the application
+```
+
+---
+
 ## Project Setup and Installation
 
 Follow these steps to set up and run the project locally.
@@ -116,8 +133,8 @@ CREATE TABLE wheel_specifications (
     form_number VARCHAR(255) NOT NULL UNIQUE,
     submitted_by VARCHAR(255) NOT NULL,
     submitted_date DATE NOT NULL,
-    fields JSONB,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    fields JSONB NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
 );
 ```
 
