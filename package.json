@@ -1,15 +1,15 @@
 {
-  "name": "project",
+  "name": "kpa-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend API for the KPA Forms assignment, built with Node.js, Express, and PostgreSQL.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "start:dev": "nodemon app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Tuhin Mandal",
   "license": "MIT",
   "packageManager": "pnpm@10.13.1",
   "dependencies": {
