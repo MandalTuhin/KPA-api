@@ -27,6 +27,16 @@ app.use('/test', testRoutes);
 // Form submission routes
 app.use('/api/forms/wheel-specifications', wheelSpecificationsRoutes);
 
+// --- Centralized Error Handler ---
+// This middleware catches any errors passed by next() or thrown in async routes.
+app.use((err, req, res, next) => {
+  console.error("An unexpected error occurred:", err);
+  res.status(500).json({
+    success: false,
+    message: "An internal server error occurred."
+  });
+});
+
 
 // Starting the server
 
