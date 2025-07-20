@@ -4,7 +4,7 @@ import {
   getFilteredWheelSpecifications
 } from '../controllers/wheelSpecificationsController.js';
 import validate from '../middleware/validate.js';
-import { wheelSpecificationSchema } from '../schemas/wheelSpecificationSchema.js';
+import { wheelSpecificationSchema, wheelSpecificationFilterSchema } from '../schemas/wheelSpecificationSchema.js';
 
 const router = express.Router();
 
@@ -12,6 +12,6 @@ const router = express.Router();
 router.post('/', validate(wheelSpecificationSchema), createWheelSpecification);
 
 // GET /api/forms/wheel-specifications
-router.get('/', getFilteredWheelSpecifications);
+router.get('/', validate(wheelSpecificationFilterSchema, 'query'), getFilteredWheelSpecifications);
 
 export default router;
