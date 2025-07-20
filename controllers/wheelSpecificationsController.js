@@ -2,14 +2,11 @@ import pool from '../db/index.js';
 
 export const createWheelSpecification = async (req, res) => {
   try {
+    // The request body is already validated by the `validate` middleware.
+    // `req.body` now contains the sanitized and validated data.
     const { formNumber, submittedBy, submittedDate, fields } = req.body;
 
-    if (!formNumber || !submittedBy || !submittedDate || !fields) {
-      return res.status(400).json({
-        success: false,
-        message: "Missing required fields",
-      });
-    }
+    // Insert data into the database
 
     const query = `
       INSERT INTO wheel_specifications (form_number, submitted_by, submitted_date, fields)
