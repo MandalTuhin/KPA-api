@@ -1,7 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import testRoutes from './routes/test.js';
 import wheelSpecificationsRoutes from './routes/wheelSpecifications.js';
 
 dotenv.config();
@@ -20,9 +19,6 @@ app.get("/", (req, res) =>{
 });
 
 // --- API Routes ---
-
-// Development test route
-app.use('/test', testRoutes);
 
 // Form submission routes
 app.use('/api/forms/wheel-specifications', wheelSpecificationsRoutes);
