@@ -33,6 +33,9 @@ export const createWheelSpecification = async (req, res, next) => {
       });
     }
 
+    // Set the Location header to the URL of the newly created resource.
+    res.location(`/api/forms/wheel-specifications?formNumber=${newRecord.formNumber}`);
+
     return res.status(201).json({
       success: true,
       message: "Wheel specification submitted successfully.",
