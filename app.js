@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import helmet from 'helmet';
 import wheelSpecificationsRoutes from './routes/wheelSpecifications.js';
 
 dotenv.config();
@@ -9,6 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 //Middleware
+app.use(helmet()); // Adds various security-related HTTP headers
 app.use(cors());
 // to parse json body.
 app.use(express.json());
