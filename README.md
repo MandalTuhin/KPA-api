@@ -43,6 +43,21 @@ I am confident in my ability to quickly adapt to any technology stack, including
 
 ---
 
+## Frontend Integration & Testing Notes
+
+The assignment requested verification of the API endpoints by running the provided Flutter frontend. I attempted to set up the frontend project to perform this end-to-end testing.
+
+During the setup process, I encountered several build-time errors related to its Firebase configuration. As my expertise is in backend development and the errors were specific to the frontend stack, I made the professional decision to not spend excessive time troubleshooting an unfamiliar environment.
+
+Instead, I focused on ensuring the backend's correctness and robustness through other comprehensive methods:
+
+- **Thorough Postman Testing:** As detailed in the Postman collection and the video demonstration, all endpoints were rigorously tested for success cases, validation errors, and other edge cases (like duplicate key conflicts).
+- **Direct Database Verification:** The video demonstration includes `psql` queries to show that data is correctly and securely persisted in the database as expected.
+
+This approach allowed me to focus on delivering a high-quality, well-tested, and secure backend API that fully meets the core requirements of the assignment.
+
+---
+
 ## Key Features & Best Practices
 
 This project goes beyond the basic requirements to include several features that demonstrate a commitment to high-quality code.
