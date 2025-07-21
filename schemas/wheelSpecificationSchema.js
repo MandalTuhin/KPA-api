@@ -3,25 +3,11 @@ import { z } from 'zod';
 export const wheelSpecificationSchema = z.object({
   formNumber: z.string({ required_error: "formNumber is required." }).min(1, "formNumber cannot be empty."),
   submittedBy: z.string({ required_error: "submittedBy is required." }).min(1, "submittedBy cannot be empty."),
-  submittedDate: z.string({ required_error: "submittedDate is required." }).superRefine((val, ctx) => {
-    // First, use Zod's built-in date validator to check for a valid date format.
-    const dateCheck = z.string().date().safeParse(val);
-    if (!dateCheck.success) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.invalid_string,
-        validation: "date",
-        message: "submittedDate must be a valid date in YYYY-MM-DD format.",
-      });
-      return; // Stop validation if the format is incorrect.
-    }
-
-    // If the date format is valid, then check if it's in the future.
-    if (new Date(val) > new Date()) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: "submittedDate cannot be in the future.",
-      });
-    }
+  submittedDate: z.coerce.date({
+    required_error: "submittedDate is required.",
+    invalid_type_error: "submittedDate must be a valid date in YYYY-MM-DD format.",
+  }).refine((date) => date <= new Date(), {
+    message: "submittedDate cannot be in the future.",
   }),
   fields: z.object({
     treadDiameterNew: z.string().optional(),
