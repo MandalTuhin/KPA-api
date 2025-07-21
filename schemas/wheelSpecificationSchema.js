@@ -31,5 +31,7 @@ export const wheelSpecificationSchema = z.object({
 export const wheelSpecificationFilterSchema = z.object({
   formNumber: z.string().optional(),
   submittedBy: z.string().optional(),
-  submittedDate: z.string().date("submittedDate must be a valid date in YYYY-MM-DD format.").optional(),
+  submittedDate: z.coerce.date({
+    invalid_type_error: "submittedDate must be a valid date in YYYY-MM-DD format.",
+  }).optional(),
 });
