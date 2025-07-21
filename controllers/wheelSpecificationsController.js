@@ -88,9 +88,13 @@ export const getFilteredWheelSpecifications = async (req, res, next) => {
       FROM wheel_specifications ${whereClause}`;
     const result = await pool.query(query, values);
 
+    const message = result.rows.length > 0
+      ? "Filtered wheel specification forms fetched successfully."
+      : "No wheel specification forms found matching the criteria.";
+
     return res.status(200).json({
       success: true,
-      message: "Filtered wheel specification forms fetched successfully.",
+      message: message,
       data: result.rows
     });
   } catch (error) {
