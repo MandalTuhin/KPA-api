@@ -40,9 +40,7 @@ export const createWheelSpecification = async (req, res, next) => {
       success: true,
       message: "Wheel specification submitted successfully.",
       data: {
-        formNumber: newRecord.formNumber,
-        submittedBy: newRecord.submittedBy,
-        submittedDate: newRecord.submittedDate,
+        ...newRecord,
         status: "Saved"
       }
     });
