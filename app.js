@@ -38,7 +38,7 @@ app.use((err, req, res, next) => {
       // detail: err.detail 
     });
   }
-  console.error("An unexpected error occurred:", err);
+  console.error(`[ERROR] ${req.method} ${req.originalUrl}:`, err);
   res.status(500).json({
     success: false,
     message: "An internal server error occurred."
