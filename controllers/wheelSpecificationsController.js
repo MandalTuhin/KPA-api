@@ -59,21 +59,21 @@ export const getFilteredWheelSpecifications = async (req, res, next) => {
   try {
     const { formNumber, submittedBy, submittedDate } = req.validatedData;
 
-    const filters = {
+    // Build the WHERE clause and parameter values dynamically and safely.
+    const { conditions, values } = Object.entries({
       form_number: formNumber,
       submitted_by: submittedBy,
       submitted_date: submittedDate,
-    };
-
-    const conditions = [];
-    const values = [];
-
-    for (const [key, value] of Object.entries(filters)) {
-      if (value) {
-        values.push(value);
-        conditions.push(`${key} = $${values.length}`);
-      }
-    }
+    }).reduce(
+      (acc, [key, value]) => {
+        if (value) {
+          acc.values.push(value);
+          acc.conditions.push(`${key} = $${acc.values.length}`);
+        }
+        return acc;
+      },
+      { conditions: [], values: [] }
+    );
 
     const whereClause = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : '';
 
