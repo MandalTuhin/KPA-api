@@ -58,6 +58,22 @@ This approach allowed me to focus on delivering a high-quality, well-tested, and
 
 ---
 
+## Video Demonstration
+
+A short screen recording has been prepared to walk through the project's features, architecture, and testing process. The video covers:
+
+- A brief overview of the project structure and technology stack.
+- A live demonstration of the API endpoints using Postman for both success and error cases.
+- Direct database verification using `psql` to show data persistence.
+
+**Click the thumbnail below to watch the video:**
+
+<a href="https://drive.google.com/drive/folders/1WAKn2-Wl_clfxzkCQ5Q1LONoMfU8-L_o?usp=drive_link" target="_blank">
+  <img src="assets/demo-thumbnail.png" alt="Video Demonstration of KPA Forms API" width="600"/>
+</a>
+
+---
+
 ## Key Features & Best Practices
 
 This project goes beyond the basic requirements to include several features that demonstrate a commitment to high-quality code.
@@ -165,7 +181,7 @@ You can import this collection into Postman to test all the implemented endpoint
 
 ## Running the Application
 
-To start the development server with hot-reloading (thanks to `nodemon`), run:
+To start the development server with auto-reloading (thanks to `nodemon`), run:
 
 ```bash
 pnpm start:dev
